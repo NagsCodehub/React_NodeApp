@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import App from './components/App';
+
+
 // const color = Math.random() > 0.5 ? 'green' : 'red';
 
 // ReactDOM.render(
@@ -11,25 +14,31 @@ import ReactDOM from 'react-dom';
 //     document.getElementById('root')
 // );
 
-const App = (props) =>
-{
-    return 
-    (
-        <h2 className="text-center">
-         {  props.headerMessage }
-        </h2>
-    );
- };
+// const App = (props) =>
+// {
+//     return 
+//     (
+//         <h2 className="text-center">
+//          {  props.headerMessage }
+//         </h2>
+//     );
+//  };
 
-App.propTypes={
-    headerMessage:React.PropTypes.String.isRequired
-};
-
-// App.defaultProps={
-//     headerMessage:"Here we go with props"
+// App.propTypes={
+//     headerMessage:React.PropTypes.String.isRequired
 // };
 
- ReactDOM.render(
-     <App headerMessage="Component Props" />,
-     document.getElementById('root')
- );
+// // App.defaultProps={
+// //     headerMessage:"Here we go with props"
+// // };
+
+//  ReactDOM.render(
+//      <App headerMessage="Component Props" />,
+//      document.getElementById('root')
+//  );
+//)
+ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+);
+
