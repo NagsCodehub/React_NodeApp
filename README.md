@@ -1,9 +1,9 @@
-# learn-fullstack-javascript
-Learning Fullstack JavaScript Development: MongoDB, Node.js, React.js
+
+Fullstack JavaScript Development with MongoDB, Node.js, React.js
 
 commands for environment setup
 
-a)git clone https://github.com/jscomplete/learn-fullstack-javascript fulljs
+a)git clone <remote url> fulljs
 b)cd fulljs
 c)git reset  --hard v1.1
 
