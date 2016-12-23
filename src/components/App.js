@@ -27,10 +27,12 @@ class App extends React.Component
     render() {
 
     return (
-        <div classname="App">
+        <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
-        <SchedulePreview  {...this.props.schedules[0]} />
+        {this.props.schedules.map(schedule=>
+        <SchedulePreview  {...schedule} />
+        )}
         </div>
         </div>
     );

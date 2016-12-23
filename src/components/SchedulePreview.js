@@ -2,10 +2,10 @@ import React from 'react';
 
 const SchedulePreview = (contest) =>(
 <div className="schedulePreview">
-<div>
+<div className="category-name">
 { contest.categoryName }
 </div>
-<div>
+<div className="schedule-name">
 { contest.contestName }
 </div>
 </div>
