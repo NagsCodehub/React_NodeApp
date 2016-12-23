@@ -5,7 +5,8 @@ import App from './components/App';
 
 import data from './testdata';
 
-console.log(data);
+//console.log(data);
+
 // const color = Math.random() > 0.5 ? 'green' : 'red';
 
 // ReactDOM.render(
@@ -40,7 +41,7 @@ console.log(data);
 //  );
 //)
 ReactDOM.render(
-    <App schedules= {data.contests} />,
+    <App />,
     document.getElementById('root')
 );
 

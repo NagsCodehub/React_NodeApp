@@ -2,6 +2,8 @@ import React from 'react';
 import Header  from './Header';
 import SchedulePreview from './SchedulePreview';
 
+import data from '../testdata';
+
 class App extends React.Component
 {
     // constructor(props)
@@ -11,10 +13,14 @@ class App extends React.Component
     // }
 
     state = {
-        pageHeader:'Code Camp'
+        pageHeader:'Code Camp',
+        schedules:[]
     };
     componentDidMount()
     {
+        this.setState({
+            schedules: data.contests
+        });
         //ajax loads,timers,listeners to other events
       console.log('component mounted');
     }
@@ -30,8 +36,8 @@ class App extends React.Component
         <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
-        {this.props.schedules.map(schedule=>
-        <SchedulePreview  {...schedule} />
+        {this.state.schedules.map(schedule =>
+        <SchedulePreview key={schedule.id} {...schedule} />
         )}
         </div>
         </div>
