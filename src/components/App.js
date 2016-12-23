@@ -12,6 +12,16 @@ class App extends React.Component
     state = {
         pageHeader:'Code Camp'
     };
+    componentDidMount()
+    {
+        //ajax loads,timers,listeners to other events
+      console.log('component mounted');
+    }
+    componentWillUnmount()
+    {
+        //clean timers,listeners,updates
+        console.log('had unmounted');
+    }
 render()
 {
     return (

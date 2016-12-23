@@ -42,3 +42,10 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
+setTimeout(() =>
+{
+    ReactDOM.render(
+    <h2> replaced the current component</h2>,
+    document.getElementById('root')
+);
+},4000);
