@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
+import data from './testdata';
 
+console.log(data);
 // const color = Math.random() > 0.5 ? 'green' : 'red';
 
 // ReactDOM.render(
@@ -38,14 +40,14 @@ import App from './components/App';
 //  );
 //)
 ReactDOM.render(
-    <App />,
+    <App schedules= {data.contests} />,
     document.getElementById('root')
 );
 
-setTimeout(() =>
-{
-    ReactDOM.render(
-    <h2> replaced the current component</h2>,
-    document.getElementById('root')
-);
-},4000);
+// setTimeout(() =>
+// {
+//     ReactDOM.render(
+//     <h2> replaced the current component</h2>,
+//     document.getElementById('root')
+// );
+// },4000);

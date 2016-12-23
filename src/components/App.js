@@ -1,5 +1,6 @@
 import React from 'react';
 import Header  from './Header';
+import SchedulePreview from './SchedulePreview';
 
 class App extends React.Component
 {
@@ -22,16 +23,29 @@ class App extends React.Component
         //clean timers,listeners,updates
         console.log('had unmounted');
     }
-render()
-{
+
+    render() {
+
     return (
         <div classname="App">
         <Header message={this.state.pageHeader} />
         <div>
-        {this.state.test}
+        <SchedulePreview  {...this.props.schedules[0]} />
         </div>
         </div>
     );
 }
 }
+// render()
+// {
+//     return (
+//         <div classname="App">
+//         <Header message={this.state.pageHeader} />
+//         <div>
+//         {this.state.test}
+//         </div>
+//         </div>
+//     );
+// }
+
 export default App;
