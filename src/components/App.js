@@ -15,7 +15,7 @@ class App extends React.Component
 
     state = {
         pageHeader:'Code Camp',
-        schedules:[]
+        schedules:this.props.initialContests
     };
     componentDidMount()
     {
@@ -41,7 +41,7 @@ class App extends React.Component
     }
 
     render() {
-
+     debugger;
     return (
         <div className="App">
         <Header message={this.state.pageHeader} />
