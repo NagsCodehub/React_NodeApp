@@ -1,6 +1,7 @@
 import React from 'react';
 import Header  from './Header';
 import SchedulePreview from './SchedulePreview';
+import axios from 'axios';
 
 import data from '../testdata';
 
@@ -18,9 +19,18 @@ class App extends React.Component
     };
     componentDidMount()
     {
-        this.setState({
-            schedules: data.contests
+        axios.get('/api/contests')
+        .then(resp=>{
+           //console.log(resp.data.contests)
+             this.setState({
+             schedules: resp.data.contests
         });
+        })
+        .catch(console.error);
+
+        // this.setState({
+        //     schedules: data.contests
+        // });
         //ajax loads,timers,listeners to other events
       console.log('component mounted');
     }

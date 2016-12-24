@@ -60,3 +60,5 @@ npm install babel-polyfill --save
 Applied solution at the link http://jamesknelson.com/using-es6-in-the-browser-with-babel-6-and-webpack/
 
 npm i -S node-sass-middleware to setup sass middleware to compile to css 
+
+npm install axios --> ajax library for remote url calls.
