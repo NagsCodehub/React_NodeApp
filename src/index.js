@@ -46,7 +46,7 @@ import App from './components/App';
 // axios.get('/contests')
 // .then(resp =>{
     ReactDOM.render(
-     <App initialContests={window.data.contests} />,
+     <App initialContests={window.initialData.contests} />,
      document.getElementById('root')
     );
 //})

@@ -1,11 +1,14 @@
 import React from 'react';
 import Header  from './Header';
-import SchedulePreview from './SchedulePreview';
+//import SchedulePreview from './SchedulePreview';
 import ContestList from './ContestList';
 import axios from 'axios';
 
 import data from '../testdata';
 
+const pushState=(obj,url) =>
+   window.history.pushState(obj,'',url);
+   
 class App extends React.Component
 {
     // constructor(props)
@@ -40,14 +43,20 @@ class App extends React.Component
         //clean timers,listeners,updates
         console.log('had unmounted');
     }
-
+   
+   fetchContest=(contestId) =>{
+       pushState(
+           { currentContestId: contestId },
+           '/contest/${contestId}' 
+       );
+   };
     render() {
      
     return (
         <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
-       <ContestList contests={this.state.schedules} />
+       <ContestList contests={this.state.schedules} onContestClick={this.fetchContest} />
         </div>
         </div>
     );

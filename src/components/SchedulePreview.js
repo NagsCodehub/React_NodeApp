@@ -6,7 +6,8 @@ class SchedulePreview extends Component
 {
     handleClick = () =>
     {
-      console.log(this.props.contestName);
+        this.props.onClick(this.props.id)
+      //console.log(this.props.contestName);
     };
     render()
     {
@@ -36,7 +37,9 @@ class SchedulePreview extends Component
 // );
 SchedulePreview.propTypes ={
     categoryName:React.PropTypes.string.isRequired,
-    contestName:React.PropTypes.string.isRequired
+    contestName:React.PropTypes.string.isRequired,
+    onClick: React.PropTypes.func.isRequired,
+    id :React.PropTypes.number.isRequired
 };
 export default SchedulePreview
 
