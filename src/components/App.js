@@ -1,6 +1,7 @@
 import React from 'react';
 import Header  from './Header';
 import SchedulePreview from './SchedulePreview';
+import ContestList from './ContestList';
 import axios from 'axios';
 
 import data from '../testdata';
@@ -19,14 +20,14 @@ class App extends React.Component
     };
     componentDidMount()
     {
-        // axios.get('/api/contests')
-        // .then(resp=>{
-        //    //console.log(resp.data.contests)
-        //      this.setState({
-        //      schedules: resp.data.contests
-        // });
-        // })
-        // .catch(console.error);
+        axios.get('/api/contests')
+        .then(resp=>{
+           //console.log(resp.data.contests)
+             this.setState({
+             schedules: resp.data.contests
+        });
+        })
+        .catch(console.error);
 
         // this.setState({
         //     schedules: data.contests
@@ -46,9 +47,7 @@ class App extends React.Component
         <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
-        {this.state.schedules.map(schedule =>
-        <SchedulePreview key={schedule.id} {...schedule} />
-        )}
+       <ContestList contests={this.state.schedules} />
         </div>
         </div>
     );
