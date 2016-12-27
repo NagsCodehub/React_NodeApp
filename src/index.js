@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-import data from './testdata';
+//import data from './testdata';
 
 //console.log(data);
 
@@ -40,10 +40,18 @@ import data from './testdata';
 //      document.getElementById('root')
 //  );
 //)
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+
+//import axios from 'axios';
+
+// axios.get('/contests')
+// .then(resp =>{
+    ReactDOM.render(
+     <App initialContests={window.data.contests} />,
+     document.getElementById('root')
+    );
+//})
+
+//.catch(console.error);
 
 // setTimeout(() =>
 // {

@@ -19,14 +19,14 @@ class App extends React.Component
     };
     componentDidMount()
     {
-        axios.get('/api/contests')
-        .then(resp=>{
-           //console.log(resp.data.contests)
-             this.setState({
-             schedules: resp.data.contests
-        });
-        })
-        .catch(console.error);
+        // axios.get('/api/contests')
+        // .then(resp=>{
+        //    //console.log(resp.data.contests)
+        //      this.setState({
+        //      schedules: resp.data.contests
+        // });
+        // })
+        // .catch(console.error);
 
         // this.setState({
         //     schedules: data.contests
@@ -41,7 +41,7 @@ class App extends React.Component
     }
 
     render() {
-     debugger;
+     
     return (
         <div className="App">
         <Header message={this.state.pageHeader} />
@@ -52,7 +52,7 @@ class App extends React.Component
         </div>
         </div>
     );
-}
+    }
 }
 // render()
 // {
