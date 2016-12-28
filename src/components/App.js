@@ -45,10 +45,17 @@ class App extends React.Component
     }
    
    fetchContest=(contestId) =>{
+      // debugger;
        pushState(
            { currentContestId: contestId },
            '/contest/${contestId}' 
        );
+
+       //set the selected schedule name
+       this.setState({
+           pageHeader:this.state.schedules[contestId].contestName,
+           currentContestId: contestId
+       });
    };
     render() {
      

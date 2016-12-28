@@ -5,8 +5,8 @@ import  SchedulePreview from './SchedulePreview';
 const ContestList=({ contests,onContestClick }) => (
     <div className="ContestList">
     {
-        contests.map(contest => 
-        <SchedulePreview key={contest.id} {...contest} onClick={onContestClick} />
+        Object.keys(contests).map(contestId => 
+        <SchedulePreview key={contestId} {...contests[contestId]} onClick={onContestClick} />
         )
     }
     </div>
@@ -14,7 +14,7 @@ const ContestList=({ contests,onContestClick }) => (
 );
 
 ContestList.propTypes={
-    contests:   React.PropTypes.array,
+    contests:   React.PropTypes.object,
     onContestClick : React.PropTypes.func.isRequired
 };
 
