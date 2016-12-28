@@ -2,7 +2,9 @@ import React from 'react';
 import Header  from './Header';
 //import SchedulePreview from './SchedulePreview';
 import ContestList from './ContestList';
+import Contest from './Contest';
 import axios from 'axios';
+import  * as api from '../api';
 
 import data from '../testdata';
 
@@ -48,22 +50,39 @@ class App extends React.Component
       // debugger;
        pushState(
            { currentContestId: contestId },
-           '/contest/${contestId}' 
+           '/contest/${contestId}'
        );
-
+       api.fetchContest(contestId).then(contest =>{
        //set the selected schedule name
        this.setState({
-           pageHeader:this.state.schedules[contestId].contestName,
-           currentContestId: contestId
+           pageHeader:contest.contestName,
+           currentContestId: contest.id,
+        //    contests:{
+        //        this.state.schedules,
+        //        [contest.id]:contest
+        //    }
        });
+
+       });
+      
    };
+     currentContent() {
+         debugger;
+       if(this.state.currentContestId){
+           return <Contest {...this.state.schedules[this.state.currentContestId]}/> 
+        }
+       
+       return  <ContestList contests={this.state.schedules} onContestClick={this.fetchContest} />
+       
+     }
+
     render() {
      
     return (
         <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
-       <ContestList contests={this.state.schedules} onContestClick={this.fetchContest} />
+       {this.currentContent()}
         </div>
         </div>
     );

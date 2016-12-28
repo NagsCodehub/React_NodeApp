@@ -62,3 +62,7 @@ Applied solution at the link http://jamesknelson.com/using-es6-in-the-browser-wi
 npm i -S node-sass-middleware to setup sass middleware to compile to css 
 
 npm install axios --> ajax library for remote url calls.
+
+To support template literals format like  ex-: to represent and convert  '/contest/${contestId}' as string  install the below
+
+npm install --save-dev babel-plugin-transform-es2015-template-literals 

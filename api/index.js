@@ -14,4 +14,11 @@ router.get('/contests',(req,res) =>{
     
 });
 });
+
+router.get('/contests/:contestId',(req,resp) =>
+{
+    let contest=contests[req.params.contestId];
+     contest.description='My edesfription is fdgfdkj odsffd,mn ytrcx kj.kerwtlcdsfcdsafds';
+    resp.send(contest);
+});
 export default router;
