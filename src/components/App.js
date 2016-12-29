@@ -55,9 +55,9 @@ class App extends React.Component
        //set the selected schedule name
        this.setState({
            currentContestId: contest.id
-           //doesn't work due to ... which wil lshow description'
+           //doesn't work due to ... which will show description'
         //    contests:{
-        //       ...this.state.schedules,
+        //       ...this.state.contests,
         //        [contest.id]:contest
         //    }
        });
@@ -65,6 +65,24 @@ class App extends React.Component
        });
       
    };
+   
+    fetchContestList=() =>{
+      // debugger;
+       pushState(
+           { currentContestId: null },
+           `/}`
+       );
+       api.fetchContestList().then(contests =>{
+       //set the selected schedule name
+       this.setState({
+           currentContestId: null,         
+           contests
+       });
+
+       });
+      
+   };
+
    currentContest()
    {
        return this.state.contests[this.state.currentContestId];
@@ -81,7 +99,7 @@ class App extends React.Component
      currentContent() {
         
        if(this.state.currentContestId){
-           return <Contest {...this.currentContest()}/> 
+           return <Contest contestListClick={this.fetchContestList} {...this.currentContest()}/> 
         }
        
        return  <ContestList contests={this.state.contests} onContestClick={this.fetchContest} />
