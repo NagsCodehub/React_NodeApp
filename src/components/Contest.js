@@ -5,9 +5,13 @@ class Contest extends Component
     render()
     {
         return(
-            <div className="Contest">
-            {this.props.id}
-            {this.props.description}
+            <div>
+                <div className="Contest">
+                {this.props.id}            
+                </div>
+                <div className="Contest">
+                {this.props.description}
+                </div>
             </div>
         )
     }

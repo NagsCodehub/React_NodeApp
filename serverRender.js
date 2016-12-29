@@ -11,7 +11,7 @@ const serverRender = () =>
 axios.get('http://localhost:8080/api/contests') 
      .then(resp =>{       
         return{
-            initialMarkup:ReactDOMServer.renderToString(<App initialContests={ resp.data.contests } />),
+            initialMarkup:ReactDOMServer.renderToString(<App initialData={ resp.data } />),
             initialData:resp.data
         }        
         

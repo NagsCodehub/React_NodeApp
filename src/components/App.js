@@ -18,18 +18,17 @@ class App extends React.Component
     //  super(props);
     //  this.state={test: 42};     
     // }
-
-    state = {
-        pageHeader:'Code Camp',
-        schedules:this.props.initialContests
+    static propTypes ={
+        initialData:React.PropTypes.object.isRequired
     };
+    state =this.props.initialData;
     componentDidMount()
     {
         axios.get('/api/contests')
         .then(resp=>{
            //console.log(resp.data.contests)
              this.setState({
-             schedules: resp.data.contests
+             contests: resp.data.contests
         });
         })
         .catch(console.error);
@@ -50,15 +49,15 @@ class App extends React.Component
       // debugger;
        pushState(
            { currentContestId: contestId },
-           '/contest/${contestId}'
+           `/contest/${contestId}`
        );
        api.fetchContest(contestId).then(contest =>{
        //set the selected schedule name
        this.setState({
-           pageHeader:contest.contestName,
-           currentContestId: contest.id,
+           currentContestId: contest.id
+           //doesn't work due to ... which wil lshow description'
         //    contests:{
-        //        this.state.schedules,
+        //       ...this.state.schedules,
         //        [contest.id]:contest
         //    }
        });
@@ -66,13 +65,26 @@ class App extends React.Component
        });
       
    };
+   currentContest()
+   {
+       return this.state.contests[this.state.currentContestId];
+   }
+   pageHeader()
+   {
+       if(this.state.currentContestId)
+       {
+           return this.currentContest().contestName;
+       }
+
+       return 'Being Reactive';
+   }
      currentContent() {
-         debugger;
+        
        if(this.state.currentContestId){
-           return <Contest {...this.state.schedules[this.state.currentContestId]}/> 
+           return <Contest {...this.currentContest()}/> 
         }
        
-       return  <ContestList contests={this.state.schedules} onContestClick={this.fetchContest} />
+       return  <ContestList contests={this.state.contests} onContestClick={this.fetchContest} />
        
      }
 
@@ -80,7 +92,7 @@ class App extends React.Component
      
     return (
         <div className="App">
-        <Header message={this.state.pageHeader} />
+        <Header message={this.pageHeader()} />
         <div>
        {this.currentContent()}
         </div>

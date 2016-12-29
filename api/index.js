@@ -15,10 +15,10 @@ router.get('/contests',(req,res) =>{
 });
 });
 
-router.get('/contests/:contestId',(req,resp) =>
+router.get('/contests/:contestId',(req,res) =>
 {
     let contest=contests[req.params.contestId];
-     contest.description='My edesfription is fdgfdkj odsffd,mn ytrcx kj.kerwtlcdsfcdsafds';
-    resp.send(contest);
+     contest.description='My edesfription is fdgfdkj odsffdmn ytrcx kjkerwtlcdsfcdsafds';
+    res.send(contest);
 });
 export default router;
