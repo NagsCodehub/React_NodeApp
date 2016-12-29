@@ -10,6 +10,10 @@ import data from '../testdata';
 
 const pushState=(obj,url) =>
    window.history.pushState(obj,'',url);
+
+   const onPopState =handler =>{
+       window.onpopstate=handler;
+   };
    
 class App extends React.Component
 {
@@ -24,14 +28,21 @@ class App extends React.Component
     state =this.props.initialData;
     componentDidMount()
     {
-        axios.get('/api/contests')
-        .then(resp=>{
-           //console.log(resp.data.contests)
-             this.setState({
-             contests: resp.data.contests
+
+        onPopState((event) =>{
+            this.setState({
+            currentContestId: (event.state || {}).currentContestId
+           });
+          // console.log(event.state);
         });
-        })
-        .catch(console.error);
+        // axios.get('/api/contests')
+        // .then(resp=>{
+        //    //console.log(resp.data.contests)
+        //      this.setState({
+        //      contests: resp.data.contests
+        // });
+        // })=>{}
+        // .catch(console.error);
 
         // this.setState({
         //     schedules: data.contests
@@ -41,6 +52,7 @@ class App extends React.Component
     }
     componentWillUnmount()
     {
+        onPopState(null);
         //clean timers,listeners,updates
         console.log('had unmounted');
     }
@@ -54,12 +66,12 @@ class App extends React.Component
        api.fetchContest(contestId).then(contest =>{
        //set the selected schedule name
        this.setState({
-           currentContestId: contest.id
+           currentContestId: contest.id,
            //doesn't work due to ... which will show description'
-        //    contests:{
-        //       ...this.state.contests,
-        //        [contest.id]:contest
-        //    }
+           contests:{
+              ...this.state.contests,
+               [contest.id]:contest
+           }
        });
 
        });

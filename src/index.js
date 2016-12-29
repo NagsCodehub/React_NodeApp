@@ -53,10 +53,10 @@ import App from './components/App';
 
 //.catch(console.error);
 
-// setTimeout(() =>
-// {
-//     ReactDOM.render(
-//     <h2> replaced the current component</h2>,
-//     document.getElementById('root')
-// );
-// },4000);
+setTimeout(() =>
+{
+    ReactDOM.render(
+    <h2> replaced the current component</h2>,
+    document.getElementById('root')
+);
+},4000);
