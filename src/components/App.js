@@ -68,10 +68,10 @@ class App extends React.Component
        this.setState({
            currentContestId: contest.id,
            //doesn't work due to ... which will show description'
-           contests:{
-              ...this.state.contests,
-               [contest.id]:contest
-           }
+        //    contests:{
+        //       ...this.state.contests,
+        //        [contest.id]:contest
+        //    }
        });
 
        });
@@ -82,7 +82,7 @@ class App extends React.Component
       // debugger;
        pushState(
            { currentContestId: null },
-           `/}`
+           `/`
        );
        api.fetchContestList().then(contests =>{
        //set the selected schedule name
